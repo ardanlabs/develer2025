@@ -9,7 +9,7 @@ import (
 )
 
 func WebAPI(log *logger.Logger) *web.App {
-	mux := web.NewApp(log.Info, mid.Logger(log))
+	mux := web.NewApp(log.Info, mid.Logger(log), mid.Errors(log))
 
 	mux.HandleFunc("GET /test", hackapp.Hack)
 
